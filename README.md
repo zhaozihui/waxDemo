@@ -1,10 +1,32 @@
 wax最新github托管地址 :https://github.com/alibaba/wax
 现在由alibaba进行代码的维护.
+Wax是什么?
 
+Wax for iPhone这种框架在开发时，旨在把Lua脚本语言和原生Objective-C应用编程接口(API)结合起来。这意味着，你可以从Lua里面，使用任何和全部的Objective-C类及框架。
+
+从技术上来讲，Wax结合了Objective-C类和原生C代码。Lua语言嵌入了C语言，然后Objective-C类并入到其中。
+
+为什么使用Wax?
+
+Wax是免费的、开源的。与其他一些基于Lua的移动开发解决方案不同，Wax是个开源框架，只需要你花一点点时间就可以上手，不需要花钱。不喜欢Wax的工作方式，或者发现实施方面的缺陷?源代码可免费获取，你总是可以改动源代码，以满足自己的需要。
+
+可以利用原生API。这意味着，为教Objective-C而编写的教程很容易由Lua for Wax来改动和编写。这还意味着，你的应用程序在外观感觉上总是如同原生应用程序，不过又得到了用Lua这种高效脚本语言编写代码可以节省时间的好处。
+
+可以使用Xcode。这意味着，模拟器和设备部署都轻而易举，不会轻易与未来的iOS版本决裂。
+
+可以利用所有现有的Objective-C库。如果你有一个Objective-C类是以前编写的，不需要改动，就可以将它用在Lua中——只要把它放入到Xcode。Three20之类的库也是一样。只要按照正常指令来添加库，就可以使用Lua代码访问它们。
+
+可以利用Wax Lua模块。Wax有几个内置的Lua模块，使得异步HTTP请求和JavaScript对象标注(JSON)创建/解析极其容易而快速(因为模块是用C编写的)。
+
+没必要管理内存。不再需要操心内存分配之类的事务。Wax为你处理这一切。
+
+Lua类型自动转换成对应的Objective-C类型，反之亦然。 这意味着，如果你调用了需要NSString和NSInteger的某个方法，但传送了Lua字符串和Lua整数，Wax会为你搞定转换工作。这种转换功能强大，甚至可以处理复杂的Objective-C特性，比如选择器。
+
+你可以利用所有上述特性。不需要精挑细选。你获得所有特性!
 ##功能1 代码覆盖
  原始OB代码
 ```sh
- @implementation MainViewController
+@implementation MainViewController
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
@@ -149,7 +171,6 @@ function viewDidLoad(self)
   wb:loadRequest(url);
   self:view():addSubview(wb);
   
-
 
 end
 //Button 点击事件
