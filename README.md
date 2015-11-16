@@ -1,4 +1,4 @@
-github最新的托管地址 :https://github.com/alibaba/wax
+wax最新github托管地址 :https://github.com/alibaba/wax
 现在由alibaba进行代码的维护.
 
 ##功能1 代码覆盖
@@ -165,4 +165,4 @@ end
 画面效果:
 
 ![IMG_1265.PNG](http://upload-images.jianshu.io/upload_images/1185668-42155fcc137a004d.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/320)
-实现功能
+
