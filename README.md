@@ -116,3 +116,53 @@ wax覆盖后的效果图:
 ![IMG_1263.PNG](http://upload-images.jianshu.io/upload_images/1185668-c33954d87a3fd79e.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/320)
 
 不仅替换了画面的显示,还将cell的点击事件重新定义,定义到了一个心的wax制作的 SimpleMapController页面
+
+###完全使用wax书写一个页面
+```sh
+
+waxClass{"SimpleMapController", UIViewController}
+function init(self)
+  self.super:init()
+  --设置title
+  self:setTitle("States")
+  self.trends = {}
+  return self
+end
+
+function viewDidLoad(self)
+--设置页面背景
+  self:view():setBackgroundColor(UIColor:blueColor());
+--自定义一个Label
+  local label = UILabel:initWithFrame(CGRect(100, 100, 200, 100))
+  label:setText("你好我是Lua界面")
+  label:setTextColor(UIColor:redColor())
+  self:view():addSubview(label)
+--自定义一个Button
+  local play = UIButton:buttonWithType(UIButtonTypeCustom)  
+  play:setFrame(CGRect(100,200, 100, 40))  
+  play:setTitle_forState("action",UIControlStateNormal);
+  play:addTarget_action_forControlEvents(self,"onDeleteIconClick:",UIControlEventTouchUpInside) 
+  self:view():addSubview(play)
+  --自定义一个webview
+  local wb = UIWebView:initWithFrame(CGRect(0, 250, 320, 200))
+  local url = NSURLRequest:requestWithURL(NSURL:URLWithString("http://www.163.com"));
+  wb:loadRequest(url);
+  self:view():addSubview(wb);
+  
+
+
+end
+//Button 点击事件
+function onDeleteIconClick(self, sender)   
+    alert("warning","YOU CAN");
+end  
+//弹出框显示
+function alert(title,content)
+  UIAlertView:alloc():initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles(title,content,nil,"OK",nil):show()
+end
+
+```
+画面效果:
+
+![IMG_1265.PNG](http://upload-images.jianshu.io/upload_images/1185668-42155fcc137a004d.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/320)
+实现功能
